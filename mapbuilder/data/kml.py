@@ -39,7 +39,8 @@ class KMLParser:
 
         if "Folder" in root:
             for folder in ensure_list(root["Folder"]):
-                name = folder["name"]
+                # Handle both 'name' and abbreviated 'n' tag
+                name = folder.get("name") or folder.get("n")
                 result[name] = {}
                 self.parse_recursively(folder, result[name])
 
@@ -59,7 +60,8 @@ class KMLParser:
                     msg = f"Placemark {placemark} unknown"
                     raise ValueError(msg)
 
-                name = placemark["name"]
+                # Handle both 'name' and abbreviated 'n' tag
+                name = placemark.get("name") or placemark.get("n")
                 if name not in result:
                     result[name] = [geom]
                 else:

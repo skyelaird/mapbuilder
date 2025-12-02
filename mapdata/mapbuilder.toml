@@ -1,0 +1,35 @@
+# Mapbuilder Configuration for CYHZ Ground Network
+# Generated from OpenStreetMap data
+
+# Empty runways config (required by mapbuilder but not used in our templates)
+runways = []
+
+# Load CYHZ ground network KML
+[data.cyhz_runways]
+type = "kml"
+source = "kml/CYHZ_ground.kml"
+root = "Runways"
+
+[data.cyhz_taxiways]
+type = "kml"
+source = "kml/CYHZ_ground.kml"
+root = "Taxiways"
+
+[data.cyhz_aprons]
+type = "kml"
+source = "kml/CYHZ_ground.kml"
+root = "Aprons"
+
+[data.cyhz_parking]
+type = "kml"
+source = "kml/CYHZ_ground.kml"
+root = "Parking & Gates"
+
+# Profiles define output configurations
+[profiles.CYHZ]
+aliases = []
+
+[[profiles.CYHZ.maps]]
+map = "CYHZ"
+target = "CYHZ_Ground.txt"
+timestamp = true
